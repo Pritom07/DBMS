@@ -128,10 +128,23 @@ Example : From previous example , the 3 tables which are in 3NF are {student_id,
 24.What are the Aggregate functions in SQL?
 --> MIN, MAX, SUM, COUNT, AVG.
 
-25.What is Transaction?
+25.What are the types of JOIN operation?
+--> There are 4 types JOIN operations. Such as :
+          * JOIN / INNER JOIN
+          * LEFT JOIN / LEFT OUTER JOIN
+          * RIGHT JOIN / RIGHT OUTER JOIN
+          * FULL JOIN / FULL OUTER JOIN
+There are 2 special types of JOIN also such as : CROSS JOIN and NATURAL JOIN.
+
+26.What is the prerequisites of JOIN, NATURAL JOIN and CROSS JOIN?
+--> * JOIN : Both table must have common column
+    * NATURAL JOIN : Both table must have common column with the same column name
+    * CROSS JOIN : No common column required. It basically creates Cartesian Product.
+
+27.What is Transaction?
 --> Transaction is a group of sql operations that are executed as one logical unit.Transaction follows ACID properties.
 
-26.What is ACID properties?
+28.What is ACID properties?
 --> * A (Atomicity) : Every transaction is a single indivisible unit, either all operations of a transaction are     
                       performed or entire transaction must be rolled back. No partial updation.              
 
