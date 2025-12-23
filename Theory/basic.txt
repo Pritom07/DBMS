@@ -1,0 +1,126 @@
+1.What is Data? 
+--> Data are raw, unprocessed facts like numbers, symbols or figures lacking inherent meaning.
+
+2.What is Information?
+--> Information is processed and organised data, making it useful for underestending and decision making.
+
+3.What is Database? 
+--> Database is a storage , electrical collection of related data, managed by software (DBMS) for easier storage, retrieval, updating often using tables.
+
+3. Why we need Database ? / Why file system fails?
+--> There are some drawbacks in file system such as :
+        * Data redundancy
+        * Data inconsistency
+        * No concurrency protocol
+        * Security issues
+For all these reasons , we need database.
+
+4.What are the types of Databases?
+--> There are many types of databases.All of them the most common types are :
+      * Hierarchical : Tree like structure with parent-child relationship.
+      * Network : More complex than hierarchical database with multiple parent-child relationship.It's a graph like structure.
+      * Relational : Widely used database where data are stored using tables and relation is created with different keys. Sush as :
+                     PostgreSQL, MySQL, SQLite, Microsoft SQL Server etc.It uses SQL (Structured Query Language).
+      * Documented : Data are stored in JSON format. Such as : MongoDB, Amazon DynamoDB etc.
+      * Key-valus : Data is stored in key-value pairs.Such as : Redis.
+
+5.What are the elements in a Table/Relation?
+--> * Row/Record/Touple : Single, horizontal entry in a table.
+    * Column/Attribute/Field : Vertical arrangements of data.
+    * Cell : A point or area where a row and a column intersects.
+    * Degre of table : indicating the number of columns.
+
+6. What are the keys in DBMS?
+--> Keys are basically used for relationship between tables.There are different types of keys like:Super Key, Candidate Key, Primary key,    Foreign key, Alternate key, Simple key, Composite Key etc.
+
+7. What is Super Key?
+--> Super Key is any set of one or more attributes that can uniquely identify each record in a table.Suppose , a Students table with fields id, name, email, address. Super Keys are : {id}, {id,name},{email},{name,email},{id,address},{email,address},{name,address},{id,email,address},{name,email,address},{id,name,address} etc.
+
+8.What is Candidate Key?
+--> Candidate key is a minimal super key.Candidate key is a key which proper subset is not a super key.For Students table candidate keys are :
+{id},{email},{name,address}.
+
+9.What is Primary Key?
+--> Primary key is an attribute or set of attributes that is used to uniquely identify a row in a table. Primary key is choosen from candidate key.For Students table primary key is : {id}. There are some characteristics of Primary key such as :
+      * Primary key must be unique.
+      * It cann't be null.
+      * Every table must have atleast one primary key.
+      * It should be stable and not frequently changed.
+      * It can be a single or multiple columns.
+Primary key is basically a type of candidate key.
+
+10.What is Alternate Key?
+--> After selecting a primary key from candidate keys, the remaining keys are said to be the alternate keys.Alternate keys have capability to uniquely identify a record but they are not choosen as a primary key.For Students table alternate keys are : {email},{name,address}.
+
+11.What is Foreign key?
+--> Foreign key is an attribute or set of attributes in a table that refers to the primary key of another table.It is used to create the relationship between tables.
+One important thing about foreign key is that it maintains the referential integrity.Referential integrity means that the data in the child table always matches valid data in the parent table. For example, if an student_id exists in Enrollments table , then it must exists in the Students table.Here Enrollments table is a child table and Students tsble is parent table.Some importance of foreign keys are :
+             * Prevents inconsistent data
+             * Avoids orphan records
+             * enforces rules like cascading updates and deletes
+             * makes database structure more reliable
+
+11.What is simple key?
+--> Simple key is a candidate key which consists of only one attribute.For Students table simple key is : {id},{email}.
+
+12.What is composite key?
+--> Composite key is a candidate key which consists of two or more attributes.For Students table composite key is : {name,address}.
+
+13.What is relationship cardinality?
+--> Relationship cardinality describes how many instances of one entity can be associated with instances of another entity.There 4 common types of relationship cardinality :
+       * One-to-one/(1:1) -> one person has one voter_id card
+       * One-to-many(1:N) -> one office has multiple employees
+       * Many-to-one(N:1) -> Multiple employees work in an office
+       * Many-to-many(N:N) -> One student can enroll multiple courses and one course can be enrolled by multiple students.
+N.B : We have to avoid Many-to-many relationship when we design ER-diagram cause it ceates anomalies.
+
+14.What is Entity?
+--> An entity is a real world object or concept that has attributes and is distinguishable from other objects. Example : Students,Teachers,Courses etc.
+
+15.What is anomalies in database?
+--> Anomalies simply mean data inconsistencies.It occures due to poor design or lack of normalization.There are 3 types of anomalies in database like :
+      * Insertion anomaly : Problem occures when new data cann't be inserted without adding incomplete or unnecessary data.
+      * Deletion anomaly : Problem occures when deleting data unintentionally removes other important data.
+      * Update anomaly : Problem occures when updating data in one place but not everywhere causes data inconsistencies.
+
+16.What is Normalization?
+--> Normalization is basically a set of rules or process of organizing to reduce redundancy avoid anomalies. Common normal forms are :
+     * 1NF -> First Normal Form
+     * 2NF -> Second Normal Form
+     * 3NF -> Third Normal Form
+     * BCNF -> Boyce-Codd Normal Form
+
+17.What is Funtional Dependency?
+--> Functional Dependency means the value of one attribute or attributes can uniquely determine the value of another attribute or attributes.That means, there exists one to one mapping.It can be written as x -> y i.e x determines y or y is functionally dependent on x.
+
+18.What are the rules of 1NF?
+--> * Atomic cell values
+    * Unique column names
+    * Column should contain values that are of the same data type
+    * No positional dependency
+    * Determine primary key
+
+19.What are the rules of 2NF?
+--> * Must be in 1NF
+    * No Partial Dependency i.e No non key attribute should depend on part of a candidate key.
+Example : Suppose , a table has 3 fields like {student_id, course_id, course_name, instructor}. here {student_id, course_id} is a primary key or candidate key. Non key attributes are {course_name, instructor}. here course_id -> course_name and  course_id -> instructor.So partial dependency exists and the table is not in 2NF. So the table is splitted into 3 tables where columns are {course_id, course_name and }, {course_id,instructor} and {student_id, course_id}.
+
+20.What are the rules of 3NF?
+--> * Must be in 2NF
+    * No Transitive Dependency i.e, No non key attribute should depend on another non key attribute.
+Example: Suppose , a table has 6 columns like {student_id, student_name, course_id, course_name, state, country}.student_id is a primary key and {student_name, course_id, course_name, state, country} are non key attributes. Here student_id -> course_id -> course_name and
+student_id -> state -> country (like x -> y , y -> z so x -> z). So , there are 2 transitive dependencies. To remove this , we have to introduce 3 tables where the fields are {student_id, student_name, course_id, state}, {course_id, course_name} and {state, country}.
+
+21.What are the rules of BCNF?
+--> * Must be in 3NF.
+    * Ensures every determinant is a candidate key.
+Example : From previous example , the 3 tables which are in 3NF are {student_id, student_name, course_id, state}, {course_id, course_name} and {state, country}. Here course_id -> course_name, state -> country, student_id -> student_name, course_id, state. So all determinant state, state, student_id are candidate keys. Therefore, we can say that the 3 tables are also in BCNF.
+
+22.What are the types of SQL commands?
+--> There are 5 types of SQL commands. They are :
+     * DDL (Data Definition Language) : CREATE, ALTER, DROP, TRUNCATE
+     * DML (Data Manipulation Language) : UPDATE, DELETE, INSERT 
+     * DQL (Data Query Language) : SELECT 
+     * DCL (Data Controll Language) : GRANT, REVOKE 
+     * TCL (Transaction Controll Language) : COMMIT, ROLLBACK 
+
