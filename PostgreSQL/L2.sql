@@ -1,4 +1,4 @@
--- 3 Tables customers, books, orders.
+-- 3 Tables : customers, books, orders.
 
 drop database if exists secondDB;
 create database secondDB;

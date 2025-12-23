@@ -1,4 +1,4 @@
--- 2 tables teachers, students
+-- 2 tables : teachers, students
 
 DROP DATABASE
   IF EXISTS firstDB;

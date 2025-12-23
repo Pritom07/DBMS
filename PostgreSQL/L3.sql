@@ -1,4 +1,4 @@
--- 3 tables students , courses, enrollments
+-- 3 tables : students , courses, enrollments
 
 drop database if exists thirdDB;
 create database thirdDB;
