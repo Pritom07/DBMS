@@ -19,8 +19,7 @@ For all these reasons , we need database.
 --> There are many types of databases.All of them the most common types are :
       * Hierarchical : Tree like structure with parent-child relationship.
       * Network : More complex than hierarchical database with multiple parent-child relationship.It's a graph like structure.
-      * Relational : Widely used database where data are stored using tables and relation is created with different keys. Sush as :
-                     PostgreSQL, MySQL, SQLite, Microsoft SQL Server etc.It uses SQL (Structured Query Language).
+      * Relational : Widely used database where data are stored using tables and relation is created with different   keys. Sush as : PostgreSQL, MySQL, SQLite, Microsoft SQL Server etc.It uses SQL (Structured Query Language).
       * Documented : Data are stored in JSON format. Such as : MongoDB, Amazon DynamoDB etc.
       * Key-valus : Data is stored in key-value pairs.Such as : Redis.
 
@@ -31,14 +30,13 @@ For all these reasons , we need database.
     * Degre of table : indicating the number of columns.
 
 6. What are the keys in DBMS?
---> Keys are basically used for relationship between tables.There are different types of keys like:Super Key, Candidate Key, Primary key,    Foreign key, Alternate key, Simple key, Composite Key etc.
+--> Keys are basically used for relationship between tables.There are different types of keys like:Super Key, Candidate Key, Primary key, Foreign key, Alternate key, Simple key, Composite Key etc.
 
 7. What is Super Key?
 --> Super Key is any set of one or more attributes that can uniquely identify each record in a table.Suppose , a Students table with fields id, name, email, address. Super Keys are : {id}, {id,name},{email},{name,email},{id,address},{email,address},{name,address},{id,email,address},{name,email,address},{id,name,address} etc.
 
 8.What is Candidate Key?
---> Candidate key is a minimal super key.Candidate key is a key which proper subset is not a super key.For Students table candidate keys are :
-{id},{email},{name,address}.
+--> Candidate key is a minimal super key.Candidate key is a key which proper subset is not a super key.For Students table candidate keys are : {id},{email},{name,address}.
 
 9.What is Primary Key?
 --> Primary key is an attribute or set of attributes that is used to uniquely identify a row in a table. Primary key is choosen from candidate key.For Students table primary key is : {id}. There are some characteristics of Primary key such as :
@@ -61,7 +59,7 @@ One important thing about foreign key is that it maintains the referential integ
              * makes database structure more reliable
 
 11.What is simple key?
---> Simple key is a candidate key which consists of only one attribute.For Students table simple key is : {id},{email}.
+--> Simple key is a candidate key which consists of only one attribute.For Students table simple keys are : {id},{email}.
 
 12.What is composite key?
 --> Composite key is a candidate key which consists of two or more attributes.For Students table composite key is : {name,address}.
@@ -71,7 +69,7 @@ One important thing about foreign key is that it maintains the referential integ
        * One-to-one/(1:1) -> one person has one voter_id card
        * One-to-many(1:N) -> one office has multiple employees
        * Many-to-one(N:1) -> Multiple employees work in an office
-       * Many-to-many(N:N) -> One student can enroll multiple courses and one course can be enrolled by multiple students.
+       * Many-to-many(N:N) -> One student can enroll multiple courses and one course can be enrolled by multiple   students.
 N.B : We have to avoid Many-to-many relationship when we design ER-diagram cause it ceates anomalies.
 
 14.What is Entity?
@@ -122,5 +120,28 @@ Example : From previous example , the 3 tables which are in 3NF are {student_id,
      * DML (Data Manipulation Language) : UPDATE, DELETE, INSERT 
      * DQL (Data Query Language) : SELECT 
      * DCL (Data Controll Language) : GRANT, REVOKE 
-     * TCL (Transaction Controll Language) : COMMIT, ROLLBACK 
+     * TCL (Transaction Controll Language) : COMMIT, ROLLBACK, SAVEPOINT
 
+23.What are Scalar functions in SQL?
+--> UPPER, LOWER, CONCAT, LENGTH.
+
+24.What are the Aggregate functions in SQL?
+--> MIN, MAX, SUM, COUNT, AVG.
+
+25.What is Transaction?
+--> Transaction is a group of sql operations that are executed as one logical unit.Transaction follows ACID properties.
+
+26.What is ACID properties?
+--> * A (Atomicity) : Every transaction is a single indivisible unit, either all operations of a transaction are     
+                      performed or entire transaction must be rolled back. No partial updation.              
+
+    * C (Consistency) : A transaction brings the database from one valid state to another valid state, enforcing     
+                        all  predefined rules.
+    
+    * I (Isolation) : Concurrent transactions do not interfare with each other. Changes from one aren't visible to 
+                      others untill commited.
+    
+    * D (Durability) : Once a transaction has been successfully committed, its changes are permanently stored in   
+                       non-violet memory (e.g:harddisk) and survive even in system failure (e.g: power shortage,crush etc.)
+    
+                
