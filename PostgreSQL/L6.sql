@@ -2,6 +2,7 @@
 
 drop database if exists funcproc;
 create database funcproc;
+-- now select database funcproc
 
 --create table students and insert data
 create table if not exists students (

@@ -2,6 +2,7 @@
 
 drop database if exists secondDB;
 create database secondDB;
+-- now select database secondDB
 
 -- customer table creation
 drop table if exists

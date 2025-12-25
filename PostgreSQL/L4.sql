@@ -2,6 +2,7 @@
 
 drop database if exists dcl;
 create database dcl;
+-- now select database dcl
 
 -- creates two schema pb1 
 create schema pb1;

@@ -1,0 +1,28 @@
+UniBridge - University_Industry Collaboration System
+
+To understand Relational Schema and Relationship Cardinality here i am demonstrating a project named "UniBridge" which is a University, Industry collaboration system. 
+
+Core Idea : Companies can offer many intership programms under different criterion with duration and stipend. Students can apply in those interships along with their projects supervised by the faculty members. After completing the assesment process by the companies, a student can see the feedback of that particular project belonging to a specific intership programm. He/She also able to find the status either Offered, Rejected or Pending.
+
+There are 6 main tables where we have to find the relations and evaluate the Relational Schema.After following the rules of converting ER diagram to Relational schema the tables are : 
+       * Students (student_id, name, email, phone, department, session, university_name)
+       * Projects (project_id, title, technology_stack, start_date, end_date, faculty_id)
+       * Faculties (faculty_id, name, email, department, designation, university_name)
+       * Companies (company_id, name, email, location)
+       * Internships (internship_id, company_id, title, duration_month, stipend, application_deadline, apply_link)
+       * Assesments (assesment_id, student_id, project_id, company_id, internship_id, feedback, ststus,  assesment_date)
+
+The relationship between Students and Projects table is Many-to-many. That's why a new junction table named Student_Project is introduced (student_id, project_id).
+Again, the relationship between Students and Internships is Many-to-many. That's why a new junction table named Student_Internship is introduced (student_id, internship_id). So, we have total 8 tables in schema.
+
+The Relationship cardinalities are :
+  * Students -> Student_Project  : 1-to-Many
+  * Student_Project -> Projects : Many-to-1
+  * Projects -> Faculties : Many-to-1
+  * Companies -> Internships : 1-to-Many
+  * Students -> Student_Internship : 1-to-Many
+  * Student_Internship -> Internships : Many-to-1
+  * Students -> Assesments : 1-to-Many
+  * Projects -> Assesments : 1-to-Many
+  * Companies -> Assesments : 1-to-Many
+  * Internships -> Assesments : 1-to-Many

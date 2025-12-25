@@ -1,5 +1,6 @@
 drop database if exists tcl;
 create database tcl;
+-- now select database tcl
 
 --N.B1: DDL(CREATE,ALTER,DROP,TRUNCATE) is auto committed in mysql,oracle but they are transactional (not auto committed) in postgresql.
 --N.B2: To run a transaction select the whole begin to commit portion / begin to rollback portion and then click 'Run Selection'.

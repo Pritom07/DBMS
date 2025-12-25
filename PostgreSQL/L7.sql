@@ -1,3 +1,9 @@
+-- 2 tables : students, deletedStudents
+
+drop database if exists fourthdb;
+create database fourthdb;
+-- now select database fourthdb
+
 create table if not exists students (
   student_id int primary key,
   first_name varchar(50) not null,
@@ -65,6 +71,7 @@ values
     '2023-02-20'
   );
 
+-- Q1 : Delete a student from students table then trigger a function that insert the deleted student information in a table.
 create procedure studentDeletion(id int)
 language plpgsql
 as

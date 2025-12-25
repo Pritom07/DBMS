@@ -1,0 +1,23 @@
+UniBridge - University_Industry Collaboration System
+
+To understand ER Diagram and Relationship Cardinality here i am demonstrating a project named "UniBridge" which is a University, Industry collaboration system. 
+
+Core Idea : Companies can offer many intership programms under different criterion with duration and stipend. Students can apply in those interships along with their projects supervised by the faculty members. After completing the assesment process by the companies, a student can see the feedback of that particular project belonging to a specific intership programm. He/She also able to find the status either Offered, Rejected or Pending.
+
+There are 6 entities. Such as :
+     * Students (student_id, name, email, phone, department, session, university_name)
+     * Projects (project_id, title, technology_stack, start_date, end_date)
+     * Faculties (faculty_id, name, email, department, designation, university_name)
+     * Companies (company_id, name, email, location)
+     * Internships (internship_id, title, duration_month, stipend, application_deadline, apply_link)
+     * Assesments (assesment_id, feedback, ststus,  assesment_date)
+
+The relationships between the entities are :
+    * Students -> Project : Many-to-Many
+    * Projects -> Faculties : Many-to-1 
+    * Companies -> Internships : 1-to-Many 
+    * Students -> Internships : Many-to-Many 
+    * Students -> Assesments : 1-to-Many 
+    * Projects -> Assesments : 1-to-Many 
+    * Assesments -> Companies : Many-to-1 
+    * Internships -> Assesments : 1-to-Many

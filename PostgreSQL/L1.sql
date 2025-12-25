@@ -5,6 +5,7 @@ DROP DATABASE
 
 CREATE DATABASE
   firstDB;
+-- now select database firstDB
 
 DROP TABLE IF EXISTS teacher;
 CREATE TABLE IF NOT EXISTS teacher(

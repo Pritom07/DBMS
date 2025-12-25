@@ -2,6 +2,7 @@
 
 drop database if exists thirdDB;
 create database thirdDB;
+-- now select database thirdDB
 
 --create students table
 create table if not exists students (

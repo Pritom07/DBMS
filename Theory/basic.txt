@@ -156,5 +156,20 @@ There are 2 special types of JOIN also such as : CROSS JOIN and NATURAL JOIN.
     
     * D (Durability) : Once a transaction has been successfully committed, its changes are permanently stored in   
                        non-violet memory (e.g:harddisk) and survive even in system failure (e.g: power shortage,crush etc.)
-    
-                
+
+29.What is Degree of Relationship? What are the types?
+--> Degree of Relationship refers to the number of entity types involved in the relationship. There are 4 types of Degree of Relationships. They are :
+          * Unary : One entity involved in relationship
+          * Binary : Two entities involved in relationship
+          * Ternary : Three entities involved in relationship
+          * N-array : More than three entities involved in relationship
+
+30.What are the rules of converting ER diagram to Relational Schema?
+--> * Composite attributes are broken into simple attributes and stored as separate columns.
+    * Multivalued attributes are converted into a new table containing the attribute and the primary key of the  related entity.
+    * Derived attributes are usually not stored in the tables because they can be calculated from other attributes.
+    * 1-to-1 relationships are implemented by adding a forign key in one of the tables, usually the one with total participation.
+    * 1-to-M and M-to-1 relationships are implemented by adding the primary key of one side as a foreign key in the many side table.
+    * M-to-N relationships are converted into a new table whose primary key is the combination of the primar keys of participating entities.
+    * Strong entities are converted into tables with their own primary key and attributes. Weak entities are also converted into tables whose primary key includes partial attributes and the primary key of the owing strong entity.
+    * Unary relationships are implemented by adding a foreign key in the same table that references to it's own primary key.
